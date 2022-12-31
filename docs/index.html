@@ -45,62 +45,67 @@
     <script src='./scripts/index.js'></script>    
 </head>
 <body>
-<div class="container">
-    <div class='mainDiv'>
-        <div class="title">
-            <h1>Precipitation Projections for the Republic of Estonia</h1>
-            <h4>
-                The RCP 8.5 scenario for the time period 2041-2070
-            </h4>
-            <h5>
-                Hover over the markers to see which cities are affected the most (75th percentile).<br>
-                Click on an administrative unit to see the mean value.
-            </h5>
+    <div class="container">
+        <div class="header">
+            <p>Geospatial Analysis with Python and R</p>
+            <p>LTOM.02.041</p>
+            <p>University of Tartu</p>
         </div>
-        <div class='mapDiv'>
-            <div class="folium-map" id="map_1d10c6e733a64293520c691807a0f5cc" ></div>
-            <script src='./scripts/rcp85_2041_2070.js'></script>  
+        <div class='mainDiv'>
+            <div class="title">
+                <h1>Precipitation Projections for the Republic of Estonia</h1>
+                <h4>
+                    The RCP 8.5 scenario for the time period 2041-2070
+                </h4>
+                <h5>
+                    Hover over the markers to see which of the major cities are affected the most (75th percentile).<br>
+                    Click on an administrative unit to see the mean precipitation value (mm/day).
+                </h5>
+            </div>
+            <div class='mapDiv'>
+                <div class="folium-map" id="map_1d10c6e733a64293520c691807a0f5cc" ></div>
+                <script src='./scripts/rcp85_2041_2070.js'></script>  
+            </div>
+            <div class="methodo">
+                <h4>Methodology</h4>
+                <p>
+                    The “Temperature and precipitation climate impact
+    indicators from 1970 to 2100 derived from European climate projections” dataset was obtained from the Copernicus Climate Data store. 
+    It is the resultant of a German global climate model and a
+    Swedish RCA4 SMHI regional climate model.
+    This precipitation dataset is originally presented
+    for the whole of the European continent and in order to optimize the analysis of the
+    projections for Estonia, the datasets had to be reduced and clipped to Estonia’s
+    extent.<br><br>
+    In order to obtain the netCDF observations for Estonia, a square grid 
+    that covered the country's extent with a grid resolution of 5 km, similar to
+    that of the netCDF dataset, was generated. The grid was produced in the 
+    WGS84 reference system since the
+    precipitation data had its location dimensions in decimal degrees.<br><br>
+    Then, an algorithm went through the centroids of the custom grid and searched for the
+    closest data point in the netCDF file using a squared distance formula. The resulting
+    data value of mean precipitation was stored in a geopackage along with its
+    corresponding grid location, the time period, and the RCP scenario. Thus, the values
+    were successfully transferred from the raster netCDF to the vector grid cells.<br><br>
+    The municipalities and major cities of Estonia were downloaded from the Estonian Land Board as a
+    vector file, and were used for spatial aggregation of the raw data into mean values for 
+    each municipality, followed by obtaining those cities that fall within the 75th percentile of the precipitation values. 
+    Finally, the Folium API was used to generate an HTML page of the resulting data, 
+    from which the JavaScript code was extracted and placed in a sole .js file for abstraction purposes.<br><br>
+    For simplicity's sake, only the RCP 8.5 scenario for the time period 2041-2070 is being displayed here.
+                </p>
+            </div>
+            <div class="btn">
+                <button onclick="topFunction()" 
+                id="myBtn" 
+                title="Go to top"
+                >Return to map</button>
+            </div>
         </div>
-        <div class="methodo">
-            <h4>Methodology</h4>
-            <p>
-                The “Temperature and precipitation climate impact
-indicators from 1970 to 2100 derived from European climate projections” dataset was obtained from the Copernicus Climate Data store. 
-It is the resultant of a German global climate model and a
-Swedish RCA4 SMHI regional climate model.
-This precipitation dataset is originally presented
-for the whole of the European continent and in order to optimize the analysis of the
-projections for Estonia, the datasets had to be reduced and clipped to Estonia’s
-extent.<br><br>
-In order to obtain the netCDF observations for Estonia, a square grid 
-that covered the country’s extent with a grid resolution of 5 km, similar to
-that of the netCDF dataset, was generated. The grid was produced in the 
-WGS84 reference system since the
-precipitation data had its location dimensions in decimal degrees.<br><br>
-Then, an algorithm went through the centroids of the custom grid and searched for the
-closest data point in the netCDF file using a squared distance formula. The resulting
-data value of mean precipitation was stored in a geopackage along with its
-corresponding grid location, the time period, and the RCP scenario. Thus, the values
-were successfully transferred from the raster netCDF to the vector grid cells.<br><br>
-The municipalities and cities of Estonia were downloaded from the Estonian Land Board as a
-vector file, and were used for spatial aggregation of the raw data into mean values for 
-each municipality, followed by obtaining those cities that fall within the 75th percentile of the precipitation values. 
-Finally, the Folium API was used to generate an HTML page of the resulting data, 
-from which the JavaScript code was extracted and placed in a sole .js file for abstraction purposes.<br><br>
-For simplicity's sake, only the RCP 8.5 scenario for the time period 2041-2070 is being displayed here.
-            </p>
+        <div class="foot">
+            <p>Designed by: Sinoj Kokulasingam</p>
+            <p><a href="mailto:sinoj.kokulasingam@ut.ee">sinoj.kokulasingam@ut.ee</a></p>
         </div>
-        <div class="btn">
-            <button onclick="topFunction()" 
-            id="myBtn" 
-            title="Go to top"
-            >Return to map</button>
-        </div>
-    </div>
-    <div class="foot">
-        <p>Author: Sinoj Kokulasingam</p>
-        <p><a href="mailto:sinoj.kokulasingam@ut.ee">sinoj.kokulasingam@ut.ee</a></p>
-    </div>
 </div>
 
 </body>
