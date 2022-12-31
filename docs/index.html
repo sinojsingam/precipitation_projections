@@ -69,7 +69,8 @@
                 <h4>Methodology</h4>
                 <p>
                     The “Temperature and precipitation climate impact
-    indicators from 1970 to 2100 derived from European climate projections” dataset was obtained from the Copernicus Climate Data store. 
+    indicators from 1970 to 2100 derived from European climate projections” dataset was obtained from the 
+    <a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-hydrology-meteorology-derived-projections?tab=overview" target="_blank">Copernicus Climate Data store</a>. 
     It is the resultant of a German global climate model and a
     Swedish RCA4 SMHI regional climate model.
     This precipitation dataset is originally presented
@@ -86,7 +87,7 @@
     data value of mean precipitation was stored in a geopackage along with its
     corresponding grid location, the time period, and the RCP scenario. Thus, the values
     were successfully transferred from the raster netCDF to the vector grid cells.<br><br>
-    The municipalities and major cities of Estonia were downloaded from the Estonian Land Board as a
+    The municipalities and major cities of Estonia were downloaded from the <a href="https://geoportaal.maaamet.ee/eng/Spatial-Data/Administrative-and-Settlement-Division-p312.html" target="_blank">Estonian Land Board</a> as a
     vector file, and were used for spatial aggregation of the raw data into mean values for 
     each municipality, followed by obtaining those cities that fall within the 75th percentile of the precipitation values. 
     Finally, the Folium API was used to generate an HTML page of the resulting data, 
