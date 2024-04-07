@@ -1,4 +1,4 @@
-# Precipitation Projectin
+# Precipitation Projections
 Visualising future precipitation changes in Estonia
 
 ## Description:
