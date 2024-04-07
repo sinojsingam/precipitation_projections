@@ -8,9 +8,7 @@ In order to obtain the netCDF observations for Estonia, a square grid that cover
 
 Then, an algorithm went through the centroids of the custom grid and searched for the closest data point in the netCDF file using a squared distance formula. The resulting data value of mean precipitation was stored in a geopackage along with its corresponding grid location, the time period, and the RCP scenario. Thus, the values were successfully transferred from the raster netCDF to the vector grid cells.
 
-The municipalities and major cities of Estonia were downloaded from the Estonian Land Board as a vector file, and were used for spatial aggregation of the raw data into mean values for each municipality, followed by obtaining those cities that fall within the 75th percentile of the precipitation values. Finally, the Folium API was used to generate an HTML page of the resulting data, from which the JavaScript code was extracted and placed in a sole .js file for abstraction purposes.
-
-For simplicity's sake, only the RCP 8.5 scenario for the time period 2041-2070 is being displayed here.
+The municipalities and major cities of Estonia were downloaded from the Estonian Land Board as a vector file, and were used for spatial aggregation of the raw data into mean values for each municipality, followed by obtaining those cities that fall within the 75th percentile of the precipitation values. Finally, the Folium API was used to generate an HTML page of the resulting data, from which the JavaScript code was extracted and placed in a javascript file for abstraction purposes.
 
 ## Script workflow:
 1. grid_fishnet.ipynb: generates the grid for Estonia's extent
