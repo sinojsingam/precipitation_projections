@@ -1,5 +1,5 @@
 # Precipitation Projections
-Visualising future precipitation changes in Estonia<br> [Visit the webmap]([https://pages.github.com/](https://sinojsingam.github.io/precipitation_projections/))
+Visualising future precipitation changes in Estonia. [Visit the webmap](https://sinojsingam.github.io/precipitation_projections/).
 
 ## Description:
 The “Temperature and precipitation climate impact indicators from 1970 to 2100 derived from European climate projections” dataset was obtained from the Copernicus Climate Data store. It is the resultant of a German global climate model and a Swedish RCA4 SMHI regional climate model. This precipitation dataset is originally presented for the whole of the European continent and in order to optimize the analysis of the projections for Estonia, the datasets had to be reduced and clipped to Estonia’s extent.
